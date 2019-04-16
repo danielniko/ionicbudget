@@ -1,0 +1,8 @@
+<ion-item>
+  <ion-label>Category</ion-label>
+  <ion-select [(ngModel)]="categoryId" (ionChange)="selectCategory()">
+    <ion-select-option *ngFor="let category of categories" [value]="category.categoryId">
+      {{category.name}}
+    </ion-select-option>
+  </ion-select>
+</ion-item>

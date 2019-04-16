@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>expense-form</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label>Name</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+  <app-select-category (category)="selectCategoryHandler($event)"></app-select-category>
+  <ion-item>
+    <ion-label>Amount</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-button color="primary" (click)="save()">Save</ion-button>
+  </ion-item>
+</ion-content>
