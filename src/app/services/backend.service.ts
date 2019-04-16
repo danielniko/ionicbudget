@@ -27,6 +27,13 @@ export class BackendService {
     );
   }
 
+  post( url: string, param: any): Observable<any> {
+    let baseUrl = server.url + url;
+    return this.http.post<any>(baseUrl, param).pipe(
+      catchError(this.handleError<any>(url))
+    );
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error); // log to console instead

@@ -5,16 +5,27 @@
 </ion-header>
 
 <ion-content>
-  <ion-item>
-    <ion-label>Name</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
-  <app-select-category (category)="selectCategoryHandler($event)"></app-select-category>
-  <ion-item>
-    <ion-label>Amount</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-button color="primary" (click)="save()">Save</ion-button>
-  </ion-item>
+  <form [formGroup]="expenseForm" (ngSubmit)="doSaveExpense()">
+    <ion-list class="form-list">
+      <ion-item>
+        <ion-label>Name</ion-label>
+        <ion-input type="text" formControlName="name"></ion-input>
+      </ion-item>
+      <app-select-category (category)="selectCategoryHandler($event)"></app-select-category>
+      <ion-item>
+        <ion-label>Amount</ion-label>
+        <ion-input type="text" formControlName="amount"></ion-input>
+
+      </ion-item>
+      <ion-item>
+        <ion-label>Description</ion-label>
+        <ion-input type="text" formControlName="description"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-row>
+      <ion-col>
+        <ion-button [disabled]="!expenseForm.valid" type="submit">Save</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
 </ion-content>
