@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { BackendService } from '../services/backend.service';
 import { LoadingService } from '../services/loading.service';
 import { Validators, FormGroup, FormControl } from '@angular/forms';
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './expense-form.page.html',
   styleUrls: ['./expense-form.page.scss'],
 })
-export class ExpenseFormPage implements OnInit {
+export class ExpenseFormPage {
 
   selectedCategory: string;
   expenseForm: FormGroup;
@@ -23,12 +23,7 @@ export class ExpenseFormPage implements OnInit {
     });
   }
 
-  ngOnInit() {
-
-  }
-
   doSaveExpense() {
-    console.log('save expense');
     let category = {
       categoryId: this.selectedCategory
     };

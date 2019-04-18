@@ -21,7 +21,6 @@ export class HomePage implements OnInit {
 
     this.backend.get('expense',{}).subscribe((data) => {
       if(data) {
-        console.log('data retrieved');
         this.expenses = data;
         this.loading.dismiss();
       }

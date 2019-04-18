@@ -8,11 +8,30 @@
 
 <ion-content>
   <div class="ion-padding">
-    <li *ngFor="let expense of expenses">
-      <span>{{ expense.name }}</span>
-    </li>
+    <ion-card *ngFor="let expense of expenses">
+      <ion-card-header>
+        <ion-card-subtitle>{{ expense.name }}</ion-card-subtitle>
+        <ion-card-title>{{ expense.amount }}</ion-card-title>
+      </ion-card-header>
+      <ion-item>{{ expense.description }}</ion-item>
+      <ion-item>
+        <ion-button slot="start" (click)="doDelete()">Delete</ion-button>
+        <ion-button slot="end" (click)="doView()">View</ion-button>
+      </ion-item>
+    </ion-card>
+    <!--
+    <ion-grid>
+      <ng-template ngFor let-expense [ngForOf]="expenses">
+        <ion-row>
+          <ion-col>{{ expense.amount }}</ion-col>
+          <ion-col>{{ expense.name }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>{{ expense.description }}</ion-col>
+        </ion-row>
+      </ng-template>
+    </ion-grid>
+    -->
     <ion-button color="primary" routerLink="/expense-form">New Expense</ion-button>
-
   </div>
-
 </ion-content>
