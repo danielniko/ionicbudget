@@ -15,8 +15,8 @@
       </ion-card-header>
       <ion-item>{{ expense.description }}</ion-item>
       <ion-item>
-        <ion-button slot="start" (click)="doDelete()">Delete</ion-button>
-        <ion-button slot="end" (click)="doView()">View</ion-button>
+        <ion-button slot="start" (click)="doDelete(expense.expenseId)">Delete</ion-button>
+        <ion-button slot="end" (click)="doView(expense.expenseId)">View</ion-button>
       </ion-item>
     </ion-card>
     <!--

@@ -19,14 +19,12 @@ export class SelectCategoryComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loading.present("retrieving categories...");
     this.backend.get('category',{}).subscribe((data) => {
       if(data) {
         this.categories = data;
         if(!this.categoryId) {
           this.categoryId = data[0].categoryId;
         }
-        this.loading.dismiss();
       }
     });
   }

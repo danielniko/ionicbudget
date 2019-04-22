@@ -19,7 +19,7 @@ export class BackendService {
 
   }
 
-  // using share() for hot subscription sharing. not used.
+  // using share() for hot subscription sharing. 
   get(url: string, param: any): Observable<any> {
     let baseUrl = server.url + url;
     return this.http.get<any>(baseUrl).pipe(
@@ -30,6 +30,20 @@ export class BackendService {
   post( url: string, param: any): Observable<any> {
     let baseUrl = server.url + url;
     return this.http.post<any>(baseUrl, param).pipe(
+      catchError(this.handleError<any>(url))
+    );
+  }
+
+  delete( url: string, param: any): Observable<any> {
+    let baseUrl = server.url + url;
+    return this.http.delete<any>(baseUrl, param).pipe(
+      catchError(this.handleError<any>(url))
+    );
+  }
+
+  put( url: string, param: any): Observable<any> {
+    let baseUrl = server.url + url;
+    return this.http.put<any>(baseUrl, param).pipe(
       catchError(this.handleError<any>(url))
     );
   }

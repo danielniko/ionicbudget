@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { SelectCategoryComponent } from './select-category/select-category.component';
+import { ModalExpenseComponent } from './modal-expense/modal-expense.component';
 
 @NgModule({
   imports: [
@@ -12,11 +13,13 @@ import { SelectCategoryComponent } from './select-category/select-category.compo
     IonicModule.forRoot()
   ],
   declarations: [
-    SelectCategoryComponent
+    SelectCategoryComponent,
+    ModalExpenseComponent
   ],
   exports: [
-    SelectCategoryComponent
+    SelectCategoryComponent,
+    ModalExpenseComponent
   ],
-  entryComponents: [],
+  entryComponents: [ModalExpenseComponent],
 })
 export class ComponentsModule {}

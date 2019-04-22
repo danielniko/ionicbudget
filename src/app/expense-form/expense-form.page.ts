@@ -37,7 +37,6 @@ export class ExpenseFormPage {
     this.backend.post("expense", expense)
       .subscribe(data => {
         if (data) {
-          console.log(data);
           this.router.navigateByUrl("home");
         }
       });

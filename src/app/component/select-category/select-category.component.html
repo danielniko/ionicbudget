@@ -1,4 +1,4 @@
-<ion-item>
+<ion-item *ngIf="categories;else loading">
   <ion-label>Category</ion-label>
   <ion-select [(ngModel)]="categoryId" (ionChange)="selectCategory()">
     <ion-select-option *ngFor="let category of categories" [value]="category.categoryId">
@@ -6,3 +6,12 @@
     </ion-select-option>
   </ion-select>
 </ion-item>
+
+<ng-template #loading>
+<ion-item>
+  <ion-label>Category</ion-label>
+  <ion-label>
+    <ion-spinner></ion-spinner>
+  </ion-label>
+</ion-item>
+</ng-template>
